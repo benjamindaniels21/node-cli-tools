@@ -1,2 +1,4 @@
-console.log("hi");
+const message = require("./myscript");
+
+console.log(message);
 //working
