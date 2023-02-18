@@ -1,13 +1,14 @@
-const counterObj = require("./myscript");
+const fs = require("fs"); // require the file system module in node
+const path = require("path"); // require path module
 
-console.log(counterObj.getCounter());
-counterObj.incrementCounter();
-console.log(counterObj.getCounter());
+fs.readdir(".", (err) => {
+  //either err === an error obj, which means there was an error
+  //or err is null which means it's ok
 
-const newCounterObj = require("./myscript");
-
-console.log(newCounterObj.getCounter());
-
-newCounterObj.incrementCounter();
-
-console.log(newCounterObj.getCounter());
+  if (err) {
+    //error handling code
+    throw new Error();
+  } else {
+    console.log("FINNNNE");
+  }
+});
