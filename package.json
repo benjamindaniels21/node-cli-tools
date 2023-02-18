@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/benjamindaniels21/node-cli-tools/issues"
   },
-  "homepage": "https://github.com/benjamindaniels21/node-cli-tools#readme"
+  "homepage": "https://github.com/benjamindaniels21/node-cli-tools#readme",
+  "bin": {
+    "nls":"index.js"
+  }
 }

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs"); // require the file system module in node
 const path = require("path"); // require path module
 
