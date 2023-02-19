@@ -8,8 +8,5 @@ fs.readdir(process.cwd(), (err, filenames) => {
   if (err) {
     //error handling code
     console.log(err);
-    return;
-  } else {
-    console.log(filenames);
   }
 });
