@@ -10,15 +10,16 @@ fs.readdir(process.cwd(), (err, filenames) => {
     console.log(err);
   }
 
-  const allstats = Array(filenames.length).fill(null); //create an array the appropriate length and fill each slot with a "null" value
+  const allStats = Array(filenames.length).fill(null); //create an array the appropriate length and fill each slot with a "null" value
 
   for (let filename of filenames) {
+    const index = filenames.indexOf(filename);
+
     fs.lstat(filename, (err, stats) => {
       if (err) {
         console.log(err);
       }
-
-      console.log(filename, stats.isFile());
+      allStats[index] = stats;
     });
   }
 });
