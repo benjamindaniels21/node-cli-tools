@@ -11,4 +11,14 @@ fs.readdir(process.cwd(), (err, filenames) => {
   }
 
   const allstats = Array(filenames.length).fill(null); //create an array the appropriate length and fill each slot with a "null" value
+
+  for (let filename of filenames) {
+    fs.lstat(filename, (err, stats) => {
+      if (err) {
+        console.log(err);
+      }
+
+      console.log(filename, stats.isFile());
+    });
+  }
 });
