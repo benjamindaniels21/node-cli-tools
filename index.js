@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require("fs"); // require the file system module in node
 const util = require("util");
+const chalk = require("chalk");
 
 //Method 2
 // const lstat = util.promisify(fs.lstat);
