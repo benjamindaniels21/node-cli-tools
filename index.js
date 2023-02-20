@@ -9,4 +9,6 @@ fs.readdir(process.cwd(), (err, filenames) => {
     //error handling code
     console.log(err);
   }
+
+  const allstats = Array(filenames.length).fill(null); //create an array the appropriate length and fill each slot with a "null" value
 });
