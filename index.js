@@ -1,26 +1,24 @@
 #!/usr/bin/env node
 
 import fs from "fs";
-import util from "util";
 import chalk from "chalk";
+import path from "path";
 
-//Method 2
-// const lstat = util.promisify(fs.lstat);
-
-//Method 3
 const { lstat } = fs.promises;
 
-fs.readdir(process.cwd(), async (err, filenames) => {
+const targetDir = process.argv[2] || process.cwd();
+
+fs.readdir(targetDir, async (err, filenames) => {
   //either err === an error obj, which means there was an error
   //or err is null which means it's ok
 
   if (err) {
-    //error handling code
+    //error handling
     console.log(err);
   }
 
   const statPromises = filenames.map((filename) => {
-    return lstat(filename);
+    return lstat(path.join(targetDir, filename));
   });
   const allStats = await Promise.all(statPromises);
 
@@ -34,15 +32,3 @@ fs.readdir(process.cwd(), async (err, filenames) => {
     }
   }
 });
-
-//Method 1
-// const lstat = (filename) => {
-//   return new Promise((resolve, reject) => {
-//     fs.lstat(filename, (err, stats) => {
-//       if (err) {
-//         reject(err);
-//       }
-//       resolve(stats);
-//     });
-//   });
-// };
