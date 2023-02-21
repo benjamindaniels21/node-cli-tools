@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-const fs = require("fs"); // require the file system module in node
-const util = require("util");
-const chalk = require("chalk");
+
+import fs from "fs";
+import util from "util";
+import chalk from "chalk";
 
 //Method 2
 // const lstat = util.promisify(fs.lstat);
@@ -26,7 +27,11 @@ fs.readdir(process.cwd(), async (err, filenames) => {
   for (let stats of allStats) {
     const index = allStats.indexOf(stats);
 
-    console.log(filenames[index], stats.isFile());
+    if (stats.isFile()) {
+      console.log(chalk.yellow(filenames[index]));
+    } else {
+      console.log(chalk.green(filenames[index]));
+    }
   }
 });
 
